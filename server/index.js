@@ -7,8 +7,11 @@ const PORT = 8081
 
 const app = express()
 
+const userRoutes = require('./Routes/userRoutes')
 
 app.use(express.json())
+
+app.use('api/users',userRoutes)
 
 
 app.listen(PORT,()=>{

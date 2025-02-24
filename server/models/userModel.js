@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Product = require('./productsModels')
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -15,11 +16,17 @@ const userSchema = new mongoose.Schema({
         required:true,
 
     },
-    isAdmin:{
-        type:Boolean,
-        required:true,
-        default:false
-    }
+    // cart:{
+    //     type: [Product],
+    //     required:true,
+    //     default:[]
+    // },
+    // orders:{
+    //     type:[Product],
+    //     required:true,
+    //     default:[]
+    // },
+
 },{timestamps:true})
 
 const User = mongoose.model('users',userSchema)
