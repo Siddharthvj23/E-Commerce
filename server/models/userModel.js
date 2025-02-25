@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Product = require('./productsModels')
+const Order = require('./orderModel')
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -16,16 +17,16 @@ const userSchema = new mongoose.Schema({
         required:true,
 
     },
-    // cart:{
-    //     type: [Product],
-    //     required:true,
-    //     default:[]
-    // },
-    // orders:{
-    //     type:[Product],
-    //     required:true,
-    //     default:[]
-    // },
+    cart:{
+        type: [String],
+        required:true,
+        default:[]
+    },
+    orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'orders',
+        required: true,
+    }]
 
 },{timestamps:true})
 
