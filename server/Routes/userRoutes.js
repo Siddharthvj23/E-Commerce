@@ -31,7 +31,7 @@ router.post('/register',async(req,res)=>{
 
         const newUser = await User(req.body)
         await newUser.save()
-
+        console.log(newUser)
         res.send({
             success:true,
             message:"You've successfully signedup, Please Login",

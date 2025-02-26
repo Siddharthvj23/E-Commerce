@@ -1,6 +1,41 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { GetCurrentUser,LoginUser } from '../apicalls/user'
+import {showloading,hideloading} from '../redux/loaderSlice'
 const Signin = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  // const getValiduser = async () => {
+  //     try {
+  //         dispatch(showloading())
+  //         const response = await GetCurrentUser()
+
+  //         console.log(response)
+  //         dispatch(setUser(response.data))
+  //         dispatch(hideloading())
+  //     } catch (error) {
+  //         dispatch(setUser(null))
+
+  //     }
+  // }
+  const onFinish = async(e)=>{
+      e.preventDefault()
+      try {
+          const response = await LoginUser({email:e.target.email.value,
+                                            password: e.target.password.value})
+          
+          if (response.success) {
+              localStorage.setItem('token', response.token)
+              // getValiduser()
+
+              navigate('/')
+          } else {
+          }
+      } catch (error) {
+
+      }
+  }
   return (
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -9,7 +44,7 @@ const Signin = () => {
     </div>
   
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form class="space-y-6" onSubmit={onFinish}>
         <div>
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
           <div class="mt-2">
@@ -30,7 +65,7 @@ const Signin = () => {
         </div>
   
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          <button type="submit"  class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
         </div>
       </form>
   

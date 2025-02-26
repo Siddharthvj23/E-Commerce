@@ -5,9 +5,12 @@ import Signup from "./Components/Signup"
 import Home from "./Components/Home"
 import Navbar from "./Components/Navbar"
 import SecondaryNav from "./Components/SecondaryNav"
+import { Provider } from "react-redux"
+import store from "./redux/store"
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
 
       <Routes>
@@ -16,7 +19,7 @@ function App() {
         <Route path="/signup" element={<><SecondaryNav /><Signup /></>} />
       </Routes>
     </BrowserRouter>
-
+    </Provider>
   )
 }
 
