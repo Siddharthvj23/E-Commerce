@@ -12,10 +12,9 @@ function App() {
   return (
     <Provider store={store}>
     <BrowserRouter>
-
       <Routes>
         <Route path="/" element={<> <Navbar /><Home /></>} />
-        <Route path="/Signin" element={<>   <SecondaryNav />     <Signin /></>} />
+        <Route path="/Signin" element={<><SecondaryNav /><Signin /></>} />
         <Route path="/signup" element={<><SecondaryNav /><Signup /></>} />
       </Routes>
     </BrowserRouter>

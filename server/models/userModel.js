@@ -4,7 +4,7 @@ const Order = require('./orderModel')
 
 const userSchema = new mongoose.Schema({
     name:{
-        type : String,
+        type :String,
         required : true
     },
     email:{
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
 
     },
     cart:{
-        type: [String],
+        type:[String],
         required:true,
         default:[]
     },

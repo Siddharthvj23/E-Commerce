@@ -9,9 +9,9 @@ const mongoose = require('mongoose')
 
 async function connetToDb() {
     await mongoose.connect(process.env.Dburl).then(()=>{
-    console.log("Connection Succesful")
+    console.log("Connection Succesfull")
 }).catch(()=>{
-    console.log('Connection UnSuccesful')
+    console.log('Connection UnSuccesfull')
 })
     
 }

@@ -6,14 +6,14 @@ const orderSchema = new mongoose.Schema({
         ref: 'users',
     },
     products: {
-        type : [String],
+        type :[String],
     },
     totalPrice:{
         type:Number,
         required:true
     },
     ShippingAddress:{
-        type: String,
+        type:String,
         required:true
     },
     paymentStatus:{

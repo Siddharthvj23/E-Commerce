@@ -16,6 +16,8 @@ router.get('/get-all-products',async(req,res)=>{
         })
     }
 })
+
+//clint products
 router.get('/get-product-by-id',async(req,res)=>{
     const productId = req.query.id;
     try {

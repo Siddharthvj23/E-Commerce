@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.Dburl).then(()=>{
-    console.log("Connection Succesful")
+    console.log("Connection Succesfull")
 }).catch(()=>{
-    console.log('Connection UnSuccesful')
+    console.log('Connection UnSuccesfull')
 })

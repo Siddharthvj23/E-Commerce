@@ -83,6 +83,7 @@ router.post('/login',async(req,res)=>{
         
     }
 })
+//add to cart 
 router.post('/add-to-cart',authMiddleware,async(req,res)=>{
     try {
         const productId = req.body.productId
@@ -97,7 +98,7 @@ router.post('/add-to-cart',authMiddleware,async(req,res)=>{
         console.log(error)
     }
 })
-
+//create order
 router.post('/create-order',authMiddleware,async(req,res)=>{
     try {
         const userId = req.body.userId
