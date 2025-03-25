@@ -14,9 +14,7 @@ const Signup = () => {
                                               password:e.target.password.value})
             if (response.success) {
                 navigate('/signin')
-            } else {
-      
-            }
+            } 
         } catch (error) {
 
         }

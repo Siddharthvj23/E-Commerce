@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import LoginTooltip from './LoginTooltip'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../redux/userSlice'
 

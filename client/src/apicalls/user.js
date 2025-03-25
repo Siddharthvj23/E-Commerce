@@ -18,7 +18,7 @@ export const LoginUser = async (value) =>{
         const response = await axiosInstance.post("http://localhost:8081/api/user/login" ,value)
         return response.data
     } catch (error) {
-        console.log(err);
+        console.log(error);
     }
 }
 

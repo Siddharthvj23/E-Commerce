@@ -3,7 +3,7 @@ import { GetCurrentUser } from "../apicalls/user";
 import { useNavigate } from "react-router-dom";;
 import { hideloading, showloading } from "../redux/loaderSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { setUser } from "../redux/userSlice";
 
 function ProtectedRoute({ children }) {
@@ -13,20 +13,20 @@ function ProtectedRoute({ children }) {
 
   const handleUser = async () => {
     try {
-      // If token is present, try to fetch user data
+  
       const response = await GetCurrentUser();
-      console.log("get user success")
-      // If token is valid, set user data in Redux state
+      console.log("get user success");
+ 
       dispatch(setUser(response.data.data));
     } catch (error) {
-      console.log("get user failure",error)
-      // Redux State Clear
+      // console.log("get user failure",error)
+
       dispatch(setUser(null));
-      // LocalStorage Clear
+
       localStorage.removeItem("token");
-      // Redirect to Login Page
+
       navigate("/login");
-      // Show Error Message on top (Notification)
+
       message.error(error.response.data.message);
       
     }

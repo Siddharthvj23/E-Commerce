@@ -30,8 +30,7 @@ const Signin = () => {
               // getValiduser()
 
               navigate('/')
-          } else {
-          }
+          } 
       } catch (error) {
 
       }
